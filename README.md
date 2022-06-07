@@ -1,10 +1,10 @@
-## Project2-FRITTTE
+# Project2-FRITTTE
 
-## User Stories
+# User Stories
 
-# As Admin
+## As Admin
 
-# As User
+## As User
 
 # Collaborators
 - [ ] Geoffrey Blois
