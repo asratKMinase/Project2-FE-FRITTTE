@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Welcome from "./Components/WelcomePage";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <Welcome />
       <Routes>
-        
+        {/* <Route path="/admin" element={} /> */}
       </Routes>
     </BrowserRouter>
     </>
