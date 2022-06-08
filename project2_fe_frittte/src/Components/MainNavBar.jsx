@@ -10,7 +10,7 @@ export default function MainNavBar(){
             <Button onClick={() => navigate("/login")}>Login</Button>
             <Button onClick={() => navigate("register")}>Sign Up</Button>
             <Button onClick={() => navigate("/Food-Items")}>View all the Food Items</Button>
-            <Button onClick={() => navigate("/admin")}>Home</Button>
+            <Button onClick={() => navigate("/admindashboard")}>Home</Button>
             </center>
         </nav>
     )

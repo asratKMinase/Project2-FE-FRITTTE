@@ -1,13 +1,11 @@
 
-import UpdateProduct from "./admin/update-product";
-import AdminDashboard from "./admin/admin-dashboard";
-import AddProduct from "./admin/add-product";
-import DeleteProduct from "./admin/delete-product";
-import NavBar from "./components/navbar";
+//mport UpdateProduct from "./admin/update-product";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AdminDashboard from "./admin/admin-dashboard";
 
 
-import Welcome from "./Components/WelcomePage";
+import WelcomePage from "./Components/WelcomePage";
 
 
 function App() {
@@ -15,12 +13,11 @@ function App() {
     <>
 
      <BrowserRouter>
-          <NavBar />
+          {/* <WelcomePage /> */}
               <Routes>
-                 <Route path="admindashboard" element={<AdminDashboard></AdminDashboard>} />
-                 <Route path="addproduct" element={<AddProduct></AddProduct>} />
-                 <Route path="updateproduct" element={<UpdateProduct></UpdateProduct>} />
-                 <Route path="deleteproduct" element={<DeleteProduct></DeleteProduct>} /
+                 <Route path="/admindashboard" element={<AdminDashboard />} />
+                 <Route path="" element={<WelcomePage />} />
+              
                </Routes> 
       </BrowserRouter>
 
