@@ -3,7 +3,7 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminDashboard from "./admin/admin-dashboard";
-import AccountRegister from "./customers/create-an-account";
+import AccountRegister from "./components/customers/create-an-account";
 import CustomerDashboard from "./customers/customer-dashboard";
 import AccountDelete from "./customers/delete-an-account";
 import AccountUpdate from "./customers/update-an-account";
