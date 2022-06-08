@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
 
-export default function NavBar() {
+export default function AdminNavBar() {
     return (
         <nav>
-            <Link to="/">
-                <button>Admin Dashboard</button>
+            <Link to="/admindashboard">
+                <Button>Admin Dashboard</Button>
             </Link>
             <span> </span>
             <Link to="/addproduct">
-                <button>Add a Product</button>
+                <Button>Add a Product</Button>
             </Link>
             <span> </span>
             <Link to="/updateproduct">
-                <button>Update a Product</button>
+                <Button>Update a Product</Button>
             </Link>
             <span> </span>
             <Link to="/deleteproduct">
-                <button>Delete a Product</button>
+                <Button>Delete a Product</Button>
             </Link>
 
         </nav>
