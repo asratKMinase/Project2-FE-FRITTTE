@@ -1,0 +1,63 @@
+import axios from "axios";
+import { useRef } from "react";
+
+export default function AccountRegister() {
+  
+
+    const url = "http://localhost:8080/aroma";
+    
+
+    const usernameInput = useRef();
+    const passwordInput  = useRef();
+    const fnameInput = useRef();
+    const lnameInput = useRef();
+    const dobInput = useRef();
+    const employeeInput = useRef();
+    const adminInput = useRef();
+  
+    async function register() {
+        
+        const user = {
+            username: usernameInput.current.value,
+            password: passwordInput.current.value,
+            fname: fnameInput.current.value,
+            lname: lnameInput.current.value,
+            dob: dobInput.current.value,
+            employee: employeeInput.current.value,
+            admin: adminInput.current.value,
+             
+    };
+        try {
+            const response = await axios.post(`${url}/customers`, user);
+            console.log(response.data);
+         
+        } catch (error) {
+            console.error(error.response.data);
+            alert(error.response.data);
+        }
+    }
+
+    return (
+        <>
+                <h4>Hello, new Customer please register below.</h4>
+                <input placeholder="Enter your username" ref={usernameInput}></input>
+                <input placeholder="Enter your password" ref={passwordInput}></input>
+                <br></br>
+                <br></br>
+                <br></br>
+                <input placeholder="Enter First Name" ref={fnameInput}></input>
+                <input placeholder="Enter Last Name" ref={lnameInput}></input>
+                {/*when we put type for the input place holder as password , then it would hide the character */}
+                <input type="password" placeholder="Enter Your Password" ref={passwordInput}></input>
+                <br></br>
+                <br></br>
+                <input placeholder="Enter your dob" ref={dobInput}></input>
+                <input placeholder="Enter your employee status" ref={dobInput}></input>
+                <input placeholder="Enter Admin status" ref={adminInput}></input>
+
+                <br></br>                   
+                <br></br>
+                <button onClick={register}>Add Account</button>
+        </>
+    );
+}
