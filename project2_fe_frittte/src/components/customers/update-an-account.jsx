@@ -4,7 +4,7 @@ import { useRef } from "react";
 export default function AccountUpdate() {
   
 
-    const url = "http://localhost:8080/aroma";
+    const url = " ";
     
 
     const usernameInput = useRef();
@@ -28,7 +28,7 @@ export default function AccountUpdate() {
              
     };
         try {
-            const response = await axios.put(`${url}/customers`, user);
+            const response = await axios.put(`${url}/xxxxx`, user);
             console.log(response.data);
          
         } catch (error) {
@@ -41,17 +41,17 @@ export default function AccountUpdate() {
         <>
                 <h4>You can update your account here.</h4>
                 <input placeholder="Enter your username" ref={usernameInput}></input>
-                <input placeholder="Enter First Name" ref={passwordInput}></input>
+                <input type="password" placeholder="Enter Your Password" ref={passwordInput}></input>
                 <br></br>
                 <br></br>
                 <br></br>
                 <input placeholder="Enter First Name" ref={fnameInput}></input>
                 <input placeholder="Enter Last Name" ref={lnameInput}></input>
-                {/*when we put type for the input place holder as password , then it would hide the character */}
-                <input type="password" placeholder="Enter Your Password" ref={passwordInput}></input>
                 <br></br>
                 <br></br>
-                <input placeholder="Enter your balance" ref={dobInput}></input>
+                <br></br>
+                <input placeholder="Enter your dob" ref={dobInput}></input>
+                <input placeholder="Enter employee status" ref={employeeInput}></input>
                 <input placeholder="Enter Admin status" ref={adminInput}></input>
 
                 <br></br>                   

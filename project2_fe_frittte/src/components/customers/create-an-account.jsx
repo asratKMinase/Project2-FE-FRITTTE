@@ -4,7 +4,7 @@ import { useRef } from "react";
 export default function AccountRegister() {
   
 
-    const url = "http://localhost:8080/aroma";
+    const url = " ";
     
 
     const usernameInput = useRef();
@@ -39,20 +39,19 @@ export default function AccountRegister() {
 
     return (
         <>
-                <h4>Hello, new Customer please register below.</h4>
+                <h4>Please register below.</h4>
                 <input placeholder="Enter your username" ref={usernameInput}></input>
-                <input placeholder="Enter your password" ref={passwordInput}></input>
+                <input type="password" placeholder="Enter Your Password" ref={passwordInput}></input>
                 <br></br>
                 <br></br>
                 <br></br>
                 <input placeholder="Enter First Name" ref={fnameInput}></input>
                 <input placeholder="Enter Last Name" ref={lnameInput}></input>
-                {/*when we put type for the input place holder as password , then it would hide the character */}
-                <input type="password" placeholder="Enter Your Password" ref={passwordInput}></input>
+                <br></br>               
                 <br></br>
                 <br></br>
                 <input placeholder="Enter your dob" ref={dobInput}></input>
-                <input placeholder="Enter your employee status" ref={dobInput}></input>
+                <input placeholder="Enter your employee status" ref={employeeInput}></input>
                 <input placeholder="Enter Admin status" ref={adminInput}></input>
 
                 <br></br>                   
