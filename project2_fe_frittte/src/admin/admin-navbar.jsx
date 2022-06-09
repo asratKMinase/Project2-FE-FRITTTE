@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, IconButton, StepButton } from "@mui/material";
 
 export default function AdminNavBar() {
     const navigate = useNavigate();
@@ -21,8 +21,8 @@ export default function AdminNavBar() {
                 <Button>Delete a Product</Button>
             </Link> */}
             
-            <Button onClick={() => navigate("/admindashboard")}>Admin Dashboard</Button>
-            <Button onClick={() => navigate("addproduct")}>Add a Product</Button>
+            <StepButton onClick={() => navigate("/admindashboard")}>Admin Dashboard</StepButton>
+            <IconButton onClick={() => navigate("addproduct")}>Add a Product</IconButton>
             <Button onClick={() => navigate("/updateproduct")}>Update a Product</Button>
             <Button onClick={() => navigate("/deleteproduct")}>Delete a Product</Button>
 
