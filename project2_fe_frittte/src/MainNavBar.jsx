@@ -11,6 +11,7 @@ export default function MainNavBar(){
             <Button onClick={() => navigate("register")}>Sign Up</Button>
             <Button onClick={() => navigate("/Food-Items")}>View all the Food Items</Button>
             <Button onClick={() => navigate("/admindashboard")}>Home</Button>
+            <Button onClick={() => navigate("/customerdashboard")}>Customer Service</Button>
             </center>
         </nav>
     )
