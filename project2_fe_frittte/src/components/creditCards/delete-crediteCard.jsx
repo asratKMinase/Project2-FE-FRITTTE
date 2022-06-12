@@ -1,21 +1,21 @@
 import axios from "axios";
 import { useRef } from "react";
 
-export default function AccountDelete() {
+export default function CrediteCardDelete() {
    
-    const url = "http://localhost:9006/customer/delete?username=";
+    const url = "xxxxxxxxxxxxxxx?username=";
     
-    const usernameInput = useRef();
+    const creditCardInput = useRef();
  
     async function register() {
        
         const user = {
-            username: usernameInput.current.value,
+            creditecard: creditCardInput.current.value,
           
              
     };
         try {
-            const response = await axios.delete(`${url}${usernameInput.current.value}`, user);
+            const response = await axios.delete(`${url} ${xxx}`, user);
             console.log(response.data);
         } catch (error) {
             console.error(error.response.data);
@@ -26,10 +26,10 @@ export default function AccountDelete() {
     return (
         <>
                 <h4>You can delete your account here</h4>
-                <input placeholder="Enter your username" ref={usernameInput}></input>
+                <input placeholder="Enter credit card number" ref={creditCardInput}></input>
               
                             
-                <button onClick={register}>Delete</button>
+                <button onClick={register}>Delete Credit Card</button>
         </>
     );
 }

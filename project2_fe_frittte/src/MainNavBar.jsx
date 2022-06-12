@@ -9,9 +9,10 @@ export default function MainNavBar(){
             <center>
             <Button onClick={() => navigate("/login")}>Login</Button>
             <Button onClick={() => navigate("register")}>Sign Up</Button>
-            <Button onClick={() => navigate("/Food-Items")}>View all the Food Items</Button>
+            <Button onClick={() => navigate("/Food-Items")}>View all Food Items</Button>
             <Button onClick={() => navigate("/admindashboard")}>Home</Button>
-            <Button onClick={() => navigate("/customerdashboard")}>Customer Service</Button>
+            <Button onClick={() => navigate("/customerdashboard")}>Customer</Button>
+            <Button onClick={() => navigate("/creditcarddashboard")}>CrediteCard</Button>
             </center>
         </nav>
     )

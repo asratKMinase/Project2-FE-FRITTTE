@@ -4,7 +4,7 @@ import { useRef } from "react";
 export default function AccountRegister() {
   
 
-    const url = " ";
+    const url = "http://localhost:9006/customer";
     
 
     const usernameInput = useRef();
@@ -28,7 +28,7 @@ export default function AccountRegister() {
              
     };
         try {
-            const response = await axios.post(`${url}/customers`, user);
+            const response = await axios.post(`${url}/register`, user);
             console.log(response.data);
          
         } catch (error) {
