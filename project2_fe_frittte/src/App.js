@@ -1,6 +1,7 @@
 
 //mport UpdateProduct from "./admin/update-product";
 
+import { createContext, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminDashboard from "./components/admin/admin-dashboard";
 import CrdeiteCardRegister from "./components/creditCards/create-creditCrad";
@@ -13,13 +14,16 @@ import AccountDelete from "./components/customers/delete-an-account";
 import AccountUpdate from "./components/customers/update-an-account";
 import Welcome from "./WelcomePage";
 
+export const userContext = createContext();
 
 function App() {
+
+  const [user, setUser] = useState({username: "Guest" })
+
   return (
     <>
-
      <BrowserRouter>
-          {/* <WelcomePage /> */}
+          <userContext.Provider value={[user, setUser]}>
               <Routes>
                  <Route path="/admindashboard" element={<AdminDashboard />} />
                  <Route path="" element={<Welcome />} />
@@ -31,7 +35,8 @@ function App() {
                  <Route path="/addcreditcard" element={<CrdeiteCardRegister/>}/>
                  <Route path="/deletecreditcard" element={<CrediteCardDelete/>}/>
                  <Route path="/LogIn" element={<CustomerLogin/>}/>
-               </Routes> 
+               </Routes>
+          </userContext.Provider> 
       </BrowserRouter>
 
      </>

@@ -1,9 +1,16 @@
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { userContext } from "../../App";
 import { Button } from "@mui/material";
 
 
 export default function CustomerNavBar(){
+    const [user, setUser] = useContext(userContext);
+    console.log(user);
+    
+    
     const navigate = useNavigate();
+
 
     return(
         <nav>

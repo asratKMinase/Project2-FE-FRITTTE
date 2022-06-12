@@ -1,31 +1,37 @@
-import { Input ,Button } from "@mui/material";
+import { Button } from "@mui/material";
 import axios from "axios";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { userContext } from "../../App";
 
 export default function CustomerLogin(){
     
     const navigate = useNavigate();
-
+    const [user, setUser] = useContext(userContext);
     const usernameInput = useRef();
     const passwordInput = useRef();
     const url = "http://localhost:9006";
     
     async function Login(){
         
-        const user = {
+        const userInput = {
         username:usernameInput.current.value,
         password:passwordInput.current.value,   
         };
         console.log(user)
         try{
-            console.log(user)
-            const response = axios.post(`${url}/auth`, user)
-            console.log(response.data)
+            const getResponse = axios.get(`${url}/customer/findCustomer?id=${usernameInput.current.value}`)
+            console.log(usernameInput.current.value)
+            const response = axios.post(`${url}/auth`, userInput)
+            setUser({...user, username: getResponse})
+            console.log("This is after we set the user ", getResponse);
+            console.log(user, "2")
+            console.log(response.data , "Hello")
             
         if(usernameInput.current.value === "ASebirka" || usernameInput.current.value === "mmark" ){
             
-              navigate("/admindashboard");
+                
+                navigate("/admindashboard");
             } else{
                 navigate("/customerdashboard");
                
@@ -47,7 +53,7 @@ export default function CustomerLogin(){
         <input placeholder="Enter your Password" ref={passwordInput}></input>
          
         <br></br>
-        <Button onClick={Login}>Log In</Button>
+        <Button onClick={Login}>Login</Button>
         
         
         </>
