@@ -4,7 +4,7 @@ import { useRef } from "react";
 export default function AccountUpdate() {
   
 
-    const url = " ";
+    const url = "http://localhost:9006/customer";
     
 
     const usernameInput = useRef();
@@ -28,7 +28,7 @@ export default function AccountUpdate() {
              
     };
         try {
-            const response = await axios.put(`${url}/xxxxx`, user);
+            const response = await axios.put(`${url}/update`, user);
             console.log(response.data);
          
         } catch (error) {
