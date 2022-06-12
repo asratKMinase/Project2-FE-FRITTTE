@@ -15,7 +15,7 @@ export default function CrediteCardDelete() {
              
     };
         try {
-            const response = await axios.delete(`${url} ${xxx}`, user);
+            const response = await axios.delete(`${url} `, user);
             console.log(response.data);
         } catch (error) {
             console.error(error.response.data);
