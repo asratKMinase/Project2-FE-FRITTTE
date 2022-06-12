@@ -8,6 +8,7 @@ import CrediteCardDashboard from "./components/creditCards/creditCrad-dashboard"
 import CrediteCardDelete from "./components/creditCards/delete-crediteCard";
 import AccountRegister from "./components/customers/create-an-account";
 import CustomerDashboard from "./components/customers/customer-dashboard";
+import CustomerLogin from "./components/customers/CustomerLogin";
 import AccountDelete from "./components/customers/delete-an-account";
 import AccountUpdate from "./components/customers/update-an-account";
 import Welcome from "./WelcomePage";
@@ -29,6 +30,7 @@ function App() {
                  <Route path="/creditcraddashboard" element={<CrediteCardDashboard/>} />
                  <Route path="/addcreditcard" element={<CrdeiteCardRegister/>}/>
                  <Route path="/deletecreditcard" element={<CrediteCardDelete/>}/>
+                 <Route path="/LogIn" element={<CustomerLogin/>}/>
                </Routes> 
       </BrowserRouter>
 
