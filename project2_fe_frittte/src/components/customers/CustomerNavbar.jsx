@@ -13,6 +13,7 @@ export default function CustomerNavBar(){
             <Button onClick={() => navigate("/updateanaccount")}>update an account</Button>
             <Button onClick={() => navigate("/deleteanaccount")}>delete an account</Button>
           
+          
         </nav>
     )
 }
