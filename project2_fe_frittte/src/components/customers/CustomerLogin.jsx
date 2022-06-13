@@ -20,10 +20,10 @@ export default function CustomerLogin(){
         };
         console.log(user)
         try{
-            const getResponse = axios.get(`${url}/customer/findCustomer?id=${usernameInput.current.value}`)
+            const getResponse = await axios.get(`${url}/customer/findCustomer?id=${usernameInput.current.value}`)
             console.log(usernameInput.current.value)
-            const response = axios.post(`${url}/auth`, userInput)
-            setUser({...user, username: getResponse})
+            const response = await axios.post(`${url}/auth`, userInput)
+            setUser({...user, username: userInput.username})
             console.log("This is after we set the user ", getResponse);
             console.log(user, "2")
             console.log(response.data , "Hello")
