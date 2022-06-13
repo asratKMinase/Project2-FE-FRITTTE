@@ -28,7 +28,7 @@ export default function CrediteCardDelete() {
                 <h4>You can delete your account here</h4>
                 <input placeholder="Enter credit card number" ref={creditCardInput}></input>
               
-                            
+                         
                 <button onClick={register}>Delete Credit Card</button>
         </>
     );

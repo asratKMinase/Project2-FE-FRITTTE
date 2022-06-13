@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
 
-export default function CrediteCardNavBar(){
+export default function CreditCardNavBar(){
     const navigate = useNavigate();
 
     return(
