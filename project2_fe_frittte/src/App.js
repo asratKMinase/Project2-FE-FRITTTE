@@ -11,6 +11,7 @@ import CustomerDashboard from "./components/customers/customer-dashboard";
 import CustomerLogin from "./components/customers/CustomerLogin";
 import AccountDelete from "./components/customers/delete-an-account";
 import AccountUpdate from "./components/customers/update-an-account";
+import ViewAllFood from "./components/food/view-all-food";
 import Welcome from "./WelcomePage";
 
 export const userContext = createContext();
@@ -38,9 +39,10 @@ function App() {
                  <Route path="/creditcraddashboard" element={<CrediteCardDashboard/>} />
                  <Route path="/addcreditcard" element={<CrdeiteCardRegister/>}/>
                  <Route path="/deletecreditcard" element={<CrediteCardDelete/>}/>
+                 <Route path="/Food-Items" element={<ViewAllFood/>}/>
                  <Route path="/LogIn" element={<CustomerLogin/>}/>
                </Routes>
-          </userContext.Provider> 
+          </userContext.Provider>
       </BrowserRouter>
 
      </>
