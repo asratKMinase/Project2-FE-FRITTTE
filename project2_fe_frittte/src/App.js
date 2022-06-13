@@ -1,5 +1,4 @@
 
-//mport UpdateProduct from "./admin/update-product";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminDashboard from "./components/admin/admin-dashboard";
@@ -13,12 +12,12 @@ import AccountUpdate from "./components/customers/update-an-account";
 import Welcome from "./WelcomePage";
 
 
+
 function App() {
+
   return (
     <>
-
      <BrowserRouter>
-          {/* <WelcomePage /> */}
               <Routes>
                  <Route path="/admindashboard" element={<AdminDashboard />} />
                  <Route path="" element={<Welcome />} />
@@ -26,9 +25,9 @@ function App() {
                  <Route path="/addanaccount" element={<AccountRegister/>}/>
                  <Route path="/updateanaccount" element={<AccountUpdate/>}/>
                  <Route path="/deleteanaccount" element={<AccountDelete/>}/>
-                 <Route path="/creditcraddashboard" element={<CrediteCardDashboard/>} />
-                 <Route path="/addcreditcard" element={<CrdeiteCardRegister/>}/>
-                 <Route path="/deletecreditcard" element={<CrediteCardDelete/>}/>
+                 <Route path="/creditcarddashboard" element={<CrediteCardDashboard/>} />
+                 <Route path="/addcreditecard" element={<CrdeiteCardRegister/>}/>
+                 <Route path="/deletecreditecard" element={<CrediteCardDelete/>}/>
                </Routes> 
       </BrowserRouter>
 
