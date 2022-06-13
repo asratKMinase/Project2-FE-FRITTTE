@@ -1,5 +1,4 @@
 
-//mport UpdateProduct from "./admin/update-product";
 
 import { createContext, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -16,7 +15,9 @@ import Welcome from "./WelcomePage";
 
 export const userContext = createContext();
 
+
 function App() {
+
 
   const [user, setUser] = useState({username: "Guest" })
 
@@ -31,6 +32,9 @@ function App() {
                  <Route path="/addanaccount" element={<AccountRegister/>}/>
                  <Route path="/updateanaccount" element={<AccountUpdate/>}/>
                  <Route path="/deleteanaccount" element={<AccountDelete/>}/>
+                 <Route path="/creditcarddashboard" element={<CrediteCardDashboard/>} />
+                 <Route path="/addcreditecard" element={<CrdeiteCardRegister/>}/>
+                 <Route path="/deletecreditecard" element={<CrediteCardDelete/>}/>
                  <Route path="/creditcraddashboard" element={<CrediteCardDashboard/>} />
                  <Route path="/addcreditcard" element={<CrdeiteCardRegister/>}/>
                  <Route path="/deletecreditcard" element={<CrediteCardDelete/>}/>

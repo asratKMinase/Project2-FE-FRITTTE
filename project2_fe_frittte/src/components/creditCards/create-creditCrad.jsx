@@ -1,39 +1,68 @@
 import axios from "axios";
 import { useRef } from "react";
+import { useState, useEffect } from "react";
 
 export default function CrdeiteCardRegister() {
-  
 
-    const url = " ";
-    
+    const url = "http://localhost:9006";
+
+    const urlCustomer = "http://localhost:9006/findCustomer?id=";
 
     const creditCardInput = useRef();
     const creditCradNameInput  = useRef();
     const cvvInput = useRef();
     const expDateInput = useRef();
-    const zipInput = useRef();
     const limitInput = useRef();
-    const customerUsernameInput = useRef();
-  
+    const usernameInput = useRef();
+
+    const [customerBody, setCustomerBody] = useState([]);
+
+    useEffect(() => {
+        getCustomer();
+    }, []);
+   
+        async function getCustomer() {
+            try {
+                const response = await fetch("http://localhost:9006/customer/findAllCustomers");
+                const allCustomer = await response.json();
+                const allCustomerRows = allCustomer.map((e) => {
+                    return (
+                        <tr>
+                            <td>{e.username}</td>
+                        </tr>
+                    );
+
+                });
+                console.log(allCustomer);
+                setCustomerBody(allCustomerRows);
+            } catch (e) {
+                console.error(e);
+    
+            }
+        }
+
     async function register() {
-        
+
+        console.log(customerBody);
+          
         const user = {
-            creditcard: creditCardInput.current.value,
-            creditcardname: creditCradNameInput.current.value,
+            creditCardNumber: creditCardInput.current.value,
+            creditCardName: creditCradNameInput.current.value,
             cvv: cvvInput.current.value,
-            expirationdate: expDateInput.current.value,
-            zip: zipInput.current.value,
+            expDate: expDateInput.current.value,
             limit: limitInput.current.value,
-            customerusername: customerUsernameInput.current.value,
-             
+            customerUsername:customerBody,    
     };
+
         try {
-            const response = await axios.post(`${url}/customers`, user);
-            console.log(response.data);
-         
+                          
+            const response = await axios.post(`${url}/addCreditCard`, user);
+            
+
         } catch (error) {
             console.error(error.response.data);
             alert(error.response.data);
+           
         }
     }
 
@@ -50,13 +79,14 @@ export default function CrdeiteCardRegister() {
                 <br></br>               
                 <br></br>
                 <br></br>
-                <input placeholder="Enter zip code" ref={zipInput}></input>
                 <input placeholder="Enter the limit on the card" ref={limitInput}></input>
-                <input placeholder="Enter your username" ref={customerUsernameInput}></input>
-
+                <input placeholder="Enter your username" ref={usernameInput}></input>
+                 Username :<output name={getCustomer}></output> 
+               
                 <br></br>                   
                 <br></br>
-                <button onClick={register}>Add Credit Card</button>
+                 <button onClick={register}>Add Credit Card</button> 
+
         </>
     );
 }
