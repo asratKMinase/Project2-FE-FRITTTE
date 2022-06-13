@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 export default function CrediteCardDelete() {
    
-    const url = "xxxxxxxxxxxxxxx?username=";
+    const url = "http://localhost:9005";
     
     const creditCardInput = useRef();
  
@@ -15,7 +15,7 @@ export default function CrediteCardDelete() {
              
     };
         try {
-            const response = await axios.delete(`${url} ${xxx}`, user);
+            const response = await axios.delete(`${url}/addCreditCard`, user);
             console.log(response.data);
         } catch (error) {
             console.error(error.response.data);
