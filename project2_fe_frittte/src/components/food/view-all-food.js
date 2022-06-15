@@ -5,12 +5,14 @@ import { useState, useRef } from "react";
 export default function ViewAllFood() {
     
     const [itemNameBody, setItemName] = useState()
+    const [num, setNum] = useState(0);
     const [CHOCDF, setCHOCDF] = useState()
     const [ENERC_KCAL, setENERC_KCAL] = useState()
     const [FAT, setFAT] = useState()
     const [FIBTG, setFIBTG] = useState()
     const [PROCNT, setPROCNT] = useState()
     const itemInput = useRef();
+    const input4 = useRef();
 
 
     const [img, setImg] = useState();
@@ -43,31 +45,33 @@ export default function ViewAllFood() {
         console.log("Item is not in the system")
     }
 }
-    // const [foodBody, setFoodBody] = useState([]);
+    async function createOrder(){
+        
+        const current = new Date();
+         const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+        const order = {
+            
+            id: num,
+            orderDate: date,
+            itemName: itemName,
+            comment: input4.current.value,
+            customerUsername: user.username
+        };
 
-    // useEffect(() => {
-    //     display();
-    // }, []);
+        try {
+            const response = await axios.post("http://localhost:9006/order", order, {withCredentials: true});
+            console.log(response.data);
+        } catch (error) {
+            console.error(error.response.data);
+            alert(error.response.data);
+        }
+    }
 
-    // async function display() {
-    //     try {
-    //         const response = await fetch("http://localhost:9006/findAllFoodItems");
-    //         const allFood = await response.json();
-    //         const allFoodRows = allFood.map((e) => {
-    //             return (
-    //                 <tr>
-    //                     <td>{e.itemName}</td>
-    //                     <td>{e.cost}</td>
-    //                 </tr>
-    //             );
-    //         });
-    //         console.log(allFood);
-    //         setFoodBody(allFoodRows);
-    //     } catch (e) {
-    //         console.error(e);
+    function randomNumberInRange(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
 
-    //     }
-    // }
+    const click = () => {setNum(randomNumberInRange(1,100))}
     return (
         <>
             <h3>Search for a Food item</h3>
@@ -85,12 +89,9 @@ export default function ViewAllFood() {
             <h3>Fiber = {FIBTG}</h3>
             <h3>Protien = {PROCNT}</h3>
             <br></br>
-            <button>Order</button>
-            {/* <div class="container">
-                <table>
-                    <tbody>{foodBody}</tbody>
-                </table>
-            </div> */}
+            <input placeholder="Add a Comment if you would like to change anything" ref={input4}></input>
+            <button onClick={() => {click(); createOrder()}}>Order</button>
+    
             
         </>
     )
