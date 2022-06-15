@@ -1,9 +1,10 @@
 
+import axios from "axios";
 import { useState, useRef } from "react";
 
 export default function ViewAllFood() {
     
-    const [itemName, setItemName] = useState()
+    const [itemNameBody, setItemName] = useState()
     const [CHOCDF, setCHOCDF] = useState()
     const [ENERC_KCAL, setENERC_KCAL] = useState()
     const [FAT, setFAT] = useState()
@@ -16,7 +17,14 @@ export default function ViewAllFood() {
 
 
     async function getItem(){
+        
+        const getItemResponse = await axios.get(`http://localhost:9008/findFoodItem?id=${itemInput.current.value}`)
+        console.log(getItemResponse.data.itemName)
+
+        if(getItemResponse.data.itemName === itemInput.current.value){
+        
         const response = await axios(`https://api.edamam.com/api/food-database/v2/parser?app_id=16bdf670&app_key=%2016a8b4660a8d35e4fd58f088e9d5f5ea&ingr=${itemInput.current.value}&nutrition-type=cooking`)
+        console.log(response)
         const item = response.data.parsed[0].food.label
         setItemName(item)
         const imgPic = response.data.parsed[0].food.image
@@ -31,7 +39,10 @@ export default function ViewAllFood() {
         setFAT(nutri3)
         setFIBTG(nutri4)
         setPROCNT(nutri5)
+    } else{
+        console.log("Item is not in the system")
     }
+}
     // const [foodBody, setFoodBody] = useState([]);
 
     // useEffect(() => {
@@ -66,7 +77,7 @@ export default function ViewAllFood() {
             <input placeholder="Type a Food to Search for it" ref={itemInput}></input>
             <button onClick={getItem}>Press to Find a Food item</button>
             <br></br>
-            <h3>{itemName}</h3>
+            <h3>{itemNameBody}</h3>
             <img src={img}></img>
             <h3>Cholesterol = {CHOCDF}</h3>
             <h3>Energy = {ENERC_KCAL}</h3>
