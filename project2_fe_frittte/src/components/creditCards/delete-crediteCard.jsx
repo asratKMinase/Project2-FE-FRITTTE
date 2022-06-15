@@ -31,7 +31,7 @@ export default function CrdeiteCardRegister() {
 
         try {
                           
-            const response = await axios.delete(`${url}//deleteCreditCard`, userCC, {withCredentials: true});
+            const response = await axios.delete(`${url}/deleteCreditCard`, userCC, {withCredentials: true});
             
         } catch (error) {
             alert(error.response.data);

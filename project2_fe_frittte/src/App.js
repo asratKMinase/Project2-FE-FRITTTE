@@ -7,6 +7,7 @@ import CrdeiteCardRegister from "./components/creditCards/create-creditCrad";
 import CrediteCardDashboard from "./components/creditCards/creditCrad-dashboard";
 import CrediteCardDelete from "./components/creditCards/delete-crediteCard";
 import AccountRegister from "./components/customers/create-an-account";
+import CreateOrder from "./components/customers/create-an-order";
 import CustomerDashboard from "./components/customers/customer-dashboard";
 import CustomerLogin from "./components/customers/CustomerLogin";
 import AccountDelete from "./components/customers/delete-an-account";
@@ -41,6 +42,7 @@ function App() {
                  <Route path="/deletecreditcard" element={<CrediteCardDelete/>}/>
                  <Route path="/Food-Items" element={<ViewAllFood/>}/>
                  <Route path="/LogIn" element={<CustomerLogin/>}/>
+                 <Route path="/create-an-order" element={<CreateOrder/>}/>
                </Routes>
           </userContext.Provider>
       </BrowserRouter>
