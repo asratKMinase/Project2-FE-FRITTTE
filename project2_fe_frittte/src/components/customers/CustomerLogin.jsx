@@ -10,7 +10,7 @@ export default function CustomerLogin(){
     const [user, setUser] = useContext(userContext);
     const usernameInput = useRef();
     const passwordInput = useRef();
-    const url = "http://localhost:9006";
+    const url = "https://frittte.azurewebsites.net";
     
     async function Login(){
         
@@ -20,10 +20,12 @@ export default function CustomerLogin(){
         };
         console.log(user)
         try{
-            const getResponse = axios.get(`${url}/customer/findCustomer?id=${usernameInput.current.value}`)
+            const getResponse = await axios.get(`${url}/customer/findCustomer?id=${usernameInput.current.value}`)
+            console.log(getResponse+2);
+        
             console.log(usernameInput.current.value)
-            const response = axios.post(`${url}/auth`, userInput)
-            setUser({...user, username: getResponse})
+            const response = await axios.post(`${url}/auth`, userInput)
+            setUser({...user, username: userInput.username})
             console.log("This is after we set the user ", getResponse);
             console.log(user, "2")
             console.log(response.data , "Hello")

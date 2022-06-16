@@ -16,14 +16,17 @@ export default function CustomerNavBar(){
         <nav>
         
             <Button onClick={() => navigate("/customerdashboard")}>Login</Button>
+            <Button onClick={() => navigate("/create-an-order")}>Order</Button>
+            <Button onClick={() => navigate("/view-my-orders")}>View My Orders</Button>
+            <Button onClick={() => navigate("/update-an-order")}>Update Order</Button>
             <Button onClick={() => navigate("/addanaccount")}>create an account</Button>
             <Button onClick={() => navigate("/updateanaccount")}>update an account</Button>
             <Button onClick={() => navigate("/deleteanaccount")}>delete an account</Button>
             <Button onClick={() => navigate("/make-payment")}>pay your balance</Button>
             <Button onClick={() => navigate("/logIn")}>delete an account</Button>
-            
-          
-          
+            <Button onClick={() => navigate("/creditcarddashboard")}>Credit Card</Button>
+
+
         </nav>
     )
 }

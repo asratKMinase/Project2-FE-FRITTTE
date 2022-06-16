@@ -2,16 +2,20 @@
 
 import { createContext, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AddProduct from "./components/admin/add-product";
 import AdminDashboard from "./components/admin/admin-dashboard";
 import CrdeiteCardRegister from "./components/creditCards/create-creditCrad";
 import CrediteCardDashboard from "./components/creditCards/creditCrad-dashboard";
 import CrediteCardDelete from "./components/creditCards/delete-crediteCard";
 import Payment from "./components/creditCards/make-payment";
 import AccountRegister from "./components/customers/create-an-account";
+import CreateOrder from "./components/customers/create-an-order";
 import CustomerDashboard from "./components/customers/customer-dashboard";
 import CustomerLogin from "./components/customers/CustomerLogin";
 import AccountDelete from "./components/customers/delete-an-account";
 import AccountUpdate from "./components/customers/update-an-account";
+import ViewMyOrders from "./components/customers/view-my-orders";
+import UpdateOrder from "./components/customers/update-order";
 import ViewAllFood from "./components/food/view-all-food";
 import Welcome from "./WelcomePage";
 
@@ -43,6 +47,10 @@ function App() {
                  <Route path="/Food-Items" element={<ViewAllFood/>}/>
                  <Route path="/make-payment" element={<Payment/>}/>
                  <Route path="/LogIn" element={<CustomerLogin/>}/>
+                 <Route path="/create-an-order" element={<CreateOrder/>}/>
+                 <Route path="/view-my-orders" element={<ViewMyOrders/>}/>
+                 <Route path="/addproduct" element={<AddProduct/>}/>
+                 <Route path="/update-an-order" element={<UpdateOrder/>}/>
                </Routes>
           </userContext.Provider>
       </BrowserRouter>
