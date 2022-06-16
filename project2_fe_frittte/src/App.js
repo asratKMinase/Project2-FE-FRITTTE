@@ -2,6 +2,7 @@
 
 import { createContext, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AddProduct from "./components/admin/add-product";
 import AdminDashboard from "./components/admin/admin-dashboard";
 import CrdeiteCardRegister from "./components/creditCards/create-creditCrad";
 import CrediteCardDashboard from "./components/creditCards/creditCrad-dashboard";
@@ -44,6 +45,7 @@ function App() {
                  <Route path="/Food-Items" element={<ViewAllFood/>}/>
                  <Route path="/LogIn" element={<CustomerLogin/>}/>
                  <Route path="/create-an-order" element={<CreateOrder/>}/>
+                 <Route path="/addproduct" element={<AddProduct/>}/>
                  <Route path="/update-an-order" element={<UpdateOrder/>}/>
                </Routes>
           </userContext.Provider>
