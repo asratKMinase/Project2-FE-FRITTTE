@@ -4,7 +4,7 @@ import { userContext } from "../../App";
 
 export default function CrdeiteCardRegister() {
 
-    const url = "http://localhost:9006";
+    const url = "https://frittte.azurewebsites.net";
 
     const [user, setUser] = useContext(userContext);
 
@@ -31,7 +31,7 @@ export default function CrdeiteCardRegister() {
 
         try {
                           
-            const response = await axios.post(`${url}/addCreditCard`, userCC, {withCredentials: true});
+            const response = await axios.post(`${url}/addCreditCard`, userCC);
             
         } catch (error) {
             console.error(error.response.data);
