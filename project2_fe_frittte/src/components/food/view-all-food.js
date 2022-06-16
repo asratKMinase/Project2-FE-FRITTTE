@@ -11,7 +11,7 @@ export default function ViewAllFood() {
 
     async function display() {
         try {
-            const response = await fetch("http://localhost:9006/findAllFoodItems");
+            const response = await fetch("https://frittte.azurewebsites.net/findAllFoodItems");
             const allFood = await response.json();
             const allFoodRows = allFood.map((e) => {
                 return (
