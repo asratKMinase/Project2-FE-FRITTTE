@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 
 export default function CrdeiteCardRegister() {
 
-    const url = "http://localhost:9006";
+    const url = "http://localhost:9005";
 
-    const urlCustomer = "http://localhost:9006/findCustomer?id=";
+    const urlCustomer = "http://localhost:9005/findCustomer?id=";
 
     const creditCardInput = useRef();
     const creditCradNameInput  = useRef();
@@ -17,29 +17,22 @@ export default function CrdeiteCardRegister() {
 
     const [customerBody, setCustomerBody] = useState([]);
 
-    useEffect(() => {
-        getCustomer();
-    }, []);
+    // useEffect(() => {
+    //     getCustomer();
+    // }, []);
    
-        async function getCustomer() {
-            try {
-                const response = await fetch("http://localhost:9006/customer/findAllCustomers");
-                const allCustomer = await response.json();
-                const allCustomerRows = allCustomer.map((e) => {
-                    return (
-                        <tr>
-                            <td>{e.username}</td>
-                        </tr>
-                    );
-
-                });
-                console.log(allCustomer);
-                setCustomerBody(allCustomerRows);
-            } catch (e) {
-                console.error(e);
+        // async function getCustomer() {
+        //     try {
+        //         const response = await fetch("http://localhost:9005/findCustomer?id=tester");
+        //         ;
+        //        console.log(await response.json());
+        
+        //         setCustomerBody(await response.json().data);
+        //     } catch (e) {
+        //         console.error(e);
     
-            }
-        }
+        //     }
+        // }
 
     async function register() {
 
@@ -51,7 +44,7 @@ export default function CrdeiteCardRegister() {
             cvv: cvvInput.current.value,
             expDate: expDateInput.current.value,
             limit: limitInput.current.value,
-            customerUsername:customerBody,    
+            customerUsername:"tester",    
     };
 
         try {
@@ -81,7 +74,7 @@ export default function CrdeiteCardRegister() {
                 <br></br>
                 <input placeholder="Enter the limit on the card" ref={limitInput}></input>
                 <input placeholder="Enter your username" ref={usernameInput}></input>
-                 Username :<output name={getCustomer}></output> 
+                 {/* Username :<output name={getCustomer}></output>  */}
                
                 <br></br>                   
                 <br></br>

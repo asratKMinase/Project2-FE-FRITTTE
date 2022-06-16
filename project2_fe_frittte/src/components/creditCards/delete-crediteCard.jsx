@@ -10,10 +10,8 @@ export default function CrediteCardDelete() {
     async function register() {
        
         const user = {
-            creditecard: creditCardInput.current.value,
-          
-             
-    };
+            creditecard: creditCardInput.current.value,         
+        };
         try {
             const response = await axios.delete(`${url}/addCreditCard`, user);
             console.log(response.data);

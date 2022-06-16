@@ -6,6 +6,7 @@ import AdminDashboard from "./components/admin/admin-dashboard";
 import CrdeiteCardRegister from "./components/creditCards/create-creditCrad";
 import CrediteCardDashboard from "./components/creditCards/creditCrad-dashboard";
 import CrediteCardDelete from "./components/creditCards/delete-crediteCard";
+import Payment from "./components/creditCards/make-payment";
 import AccountRegister from "./components/customers/create-an-account";
 import CustomerDashboard from "./components/customers/customer-dashboard";
 import CustomerLogin from "./components/customers/CustomerLogin";
@@ -40,6 +41,7 @@ function App() {
                  <Route path="/addcreditcard" element={<CrdeiteCardRegister/>}/>
                  <Route path="/deletecreditcard" element={<CrediteCardDelete/>}/>
                  <Route path="/Food-Items" element={<ViewAllFood/>}/>
+                 <Route path="/make-payment" element={<Payment/>}/>
                  <Route path="/LogIn" element={<CustomerLogin/>}/>
                </Routes>
           </userContext.Provider>
