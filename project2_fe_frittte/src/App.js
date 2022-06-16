@@ -18,6 +18,7 @@ import ViewAllFood from "./components/food/view-all-food";
 import Welcome from "./WelcomePage";
 import UpdateProduct from "./components/admin/update-product";
 import DeleteProduct from "./components/admin/delete-product";
+import "./App.css"
 
 import "./App.css"
 
