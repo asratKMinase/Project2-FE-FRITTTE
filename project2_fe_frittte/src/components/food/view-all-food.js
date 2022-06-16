@@ -1,11 +1,14 @@
 
 import axios from "axios";
 import { useState, useRef, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { userContext } from "../../App";
 
 export default function ViewAllFood() {
     
     const [user, setUser] = useContext(userContext);
+    const [showLog, setShowLogin] = useState(false);
+    const navigate = useNavigate();
 
     const [itemNameBody, setItemName] = useState()
     const [num, setNum] = useState(0);
@@ -51,23 +54,28 @@ export default function ViewAllFood() {
 }
     async function createOrder(){
         
-        const current = new Date();
-         const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-        const order = {
-            
-            id: num,
-            orderDate: date,
-            itemName: itemNameBody,
-            comment: input4.current.value,
-            customerUsername: user.username
-        };
+        if(user.username === "Guest"){
+            setShowLogin(!showLog)
+        }else{
 
-        try {
-            const response = await axios.post("https://frittte.azurewebsites.net/order", order, {withCredentials: true});
-            console.log(response.data);
-        } catch (error) {
-            console.error(error.response.data);
-            alert(error.response.data);
+            const current = new Date();
+            const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+            const order = {
+            
+                id: num,
+                orderDate: date,
+                itemName: itemNameBody,
+                comment: input4.current.value,
+                customerUsername: user.username
+            };
+
+            try {
+                const response = await axios.post("https://frittte.azurewebsites.net/order", order, {withCredentials: true});
+                console.log(response.data);
+            } catch (error) {
+                console.error(error.response.data);
+                alert(error.response.data);
+            }
         }
     }
 
@@ -76,6 +84,12 @@ export default function ViewAllFood() {
       }
 
     const click = () => {setNum(randomNumberInRange(1,100))}
+
+    function toLogin(){
+        navigate("/login")
+    }
+
+
     return (
         <>
             <h3>Search for a Food item</h3>
@@ -95,7 +109,8 @@ export default function ViewAllFood() {
             <br></br>
             <input placeholder="Add a Comment if you would like to change anything" ref={input4}></input>
             <button onClick={() => {click(); createOrder()}}>Order</button>
-    
+            {showLog && <p>To Order You need to Login. Press the Button Below to be taken to the Login Page</p> }
+            {showLog && <button onClick={toLogin} >To Login</button> }
             
         </>
     )
