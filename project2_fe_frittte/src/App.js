@@ -1,5 +1,3 @@
-
-
 import { createContext, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddProduct from "./components/admin/add-product";
@@ -20,6 +18,7 @@ import ViewAllFood from "./components/food/view-all-food";
 import Welcome from "./WelcomePage";
 import UpdateProduct from "./components/admin/update-product";
 import DeleteProduct from "./components/admin/delete-product";
+import "./App.css"
 
 export const userContext = createContext();
 
@@ -36,6 +35,8 @@ function App() {
               <Routes>
                  <Route path="/admindashboard" element={<AdminDashboard />} />
                  <Route path="" element={<Welcome />} />
+                 <Route path="/" element={<Welcome />} />
+                 <Route path="/register" element={<AccountRegister />} />
                  <Route path="/customerdashboard" element={<CustomerDashboard/>} />
                  <Route path="/addanaccount" element={<AccountRegister/>}/>
                  <Route path="/updateanaccount" element={<AccountUpdate/>}/>
