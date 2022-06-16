@@ -18,7 +18,6 @@ export default function CrdeiteCardRegister() {
     async function register() {
     console.log(user.username)
 
-
         const userCC = {
 
             creditCardNumber: creditCardInput.current.value,
@@ -26,7 +25,9 @@ export default function CrdeiteCardRegister() {
             cvv: cvvInput.current.value,
             expDate: expDateInput.current.value,
             limit: limitInput.current.value,
+
             customerUsername: user.username,  
+
     };
 
         try {
@@ -54,6 +55,7 @@ export default function CrdeiteCardRegister() {
                 <br></br>
                 <br></br>
                 <input placeholder="Enter the limit on the card" ref={limitInput}></input>
+          
                 <br></br>                   
                 <br></br>
                 <button onClick={register}>Add Credit Card</button> 

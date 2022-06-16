@@ -30,7 +30,7 @@ export default function CustomerLogin(){
             console.log(user, "2")
             console.log(response.data , "Hello")
             
-        if(usernameInput.current.value === "ASebirka" || usernameInput.current.value === "mmark" ){
+        if(usernameInput.current.value === "Io" || usernameInput.current.value === "mmark" ){
             
                 
                 navigate("/admindashboard");
