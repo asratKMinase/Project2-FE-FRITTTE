@@ -1,9 +1,12 @@
 
 import axios from "axios";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
+import { userContext } from "../../App";
 
 export default function ViewAllFood() {
     
+    const [user, setUser] = useContext(userContext);
+
     const [itemNameBody, setItemName] = useState()
     const [num, setNum] = useState(0);
     const [CHOCDF, setCHOCDF] = useState()
@@ -53,7 +56,7 @@ export default function ViewAllFood() {
             
             id: num,
             orderDate: date,
-            itemName: itemName,
+            itemName: itemNameBody,
             comment: input4.current.value,
             customerUsername: user.username
         };
