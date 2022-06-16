@@ -49,7 +49,7 @@ export default function AddProduct() {
     async function createProduct(){
         const newProduct = {
             id: idInput.current.value,
-            itemName:itemNameBody,
+            itemName:itemName,
             cost:costInput.current.value,
             weight:weightInput.current.value,
             volume:volumeInput.current.value,
