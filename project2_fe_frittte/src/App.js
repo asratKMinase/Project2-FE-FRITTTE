@@ -18,6 +18,8 @@ import ViewMyOrders from "./components/customers/view-my-orders";
 import UpdateOrder from "./components/customers/update-order";
 import ViewAllFood from "./components/food/view-all-food";
 import Welcome from "./WelcomePage";
+import UpdateProduct from "./components/admin/update-product";
+import DeleteProduct from "./components/admin/delete-product";
 
 export const userContext = createContext();
 
@@ -50,6 +52,9 @@ function App() {
                  <Route path="/view-my-orders" element={<ViewMyOrders/>}/>
                  <Route path="/addproduct" element={<AddProduct/>}/>
                  <Route path="/update-an-order" element={<UpdateOrder/>}/>
+                 <Route path="/update-product" element={<UpdateProduct/>}/>
+                 <Route path="/delete-product" element={<DeleteProduct/>}/>
+
                </Routes>
           </userContext.Provider>
       </BrowserRouter>

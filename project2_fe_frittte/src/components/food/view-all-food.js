@@ -63,7 +63,7 @@ export default function ViewAllFood() {
         };
 
         try {
-            const response = await axios.post("https://frittte.azurewebsites.net/order", order, {withCredentials: true});
+            const response = await axios.post("https://frittte.azurewebsites.net/order", order);
             console.log(response.data);
         } catch (error) {
             console.error(error.response.data);
@@ -75,7 +75,7 @@ export default function ViewAllFood() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
 
-    const click = () => {setNum(randomNumberInRange(1,100))}
+    const click = () => {setNum(randomNumberInRange(1,100000))}
     return (
         <>
             <h3>Search for a Food item</h3>
