@@ -27,10 +27,10 @@ export default function CustomerLogin(){
             const response = await axios.post(`${url}/auth`, userInput)
             setUser({...user, username: userInput.username})
             console.log("This is after we set the user ", getResponse);
-            console.log(user, "2")
+            console.log(user)
             console.log(response.data , "Hello")
             
-        if(usernameInput.current.value === "Io" || usernameInput.current.value === "mmark" ){
+        if(getResponse.data.admin === true){
             
                 
                 navigate("/admindashboard");
