@@ -40,8 +40,7 @@ function App() {
                  <Route path="/deleteanaccount" element={<AccountDelete/>}/>
                  <Route path="/creditcarddashboard" element={<CrediteCardDashboard/>} />
                  <Route path="/addcreditecard" element={<CrdeiteCardRegister/>}/>
-                 <Route path="/deletecreditecard" element={<CrediteCardDelete/>}/>
-                 <Route path="/creditcraddashboard" element={<CrediteCardDashboard/>} />
+                 <Route path="/deletecreditecard" element={<CrediteCardDelete/>} />
                  <Route path="/addcreditcard" element={<CrdeiteCardRegister/>}/>
                  <Route path="/deletecreditcard" element={<CrediteCardDelete/>}/>
                  <Route path="/Food-Items" element={<ViewAllFood/>}/>

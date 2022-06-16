@@ -7,11 +7,12 @@ export default function CreditCardNavBar(){
 
     return(
         <nav>
-        
-            <Button onClick={() => navigate("/creditcarddashboard")}>Login</Button>
-            <Button onClick={() => navigate("/addcreditecard")}>create an account</Button>
-            <Button onClick={() => navigate("/deletecreditecard")}>delete an account</Button>
-         
+            <center>
+            <h1>Manage Your CreditCard</h1> 
+            <Button onClick={() => navigate("/addcreditecard")}>Add your Credit Card</Button>
+            <Button onClick={() => navigate("/deletecreditecard")}>Delete Your Credit Card</Button>
+            <Button onClick={() => navigate("/customerdashboard")}>Back to Your DashBoard</Button>
+            </center>
         </nav>
     )
 }
