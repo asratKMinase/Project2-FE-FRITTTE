@@ -1,5 +1,3 @@
-
-
 import { createContext, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddProduct from "./components/admin/add-product";
@@ -36,6 +34,8 @@ function App() {
               <Routes>
                  <Route path="/admindashboard" element={<AdminDashboard />} />
                  <Route path="" element={<Welcome />} />
+                 <Route path="/" element={<Welcome />} />
+                 <Route path="/register" element={<AccountRegister />} />
                  <Route path="/customerdashboard" element={<CustomerDashboard/>} />
                  <Route path="/addanaccount" element={<AccountRegister/>}/>
                  <Route path="/updateanaccount" element={<AccountUpdate/>}/>
