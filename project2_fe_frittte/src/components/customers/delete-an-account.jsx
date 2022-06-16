@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 export default function AccountDelete() {
    
-    const url = "http://localhost:9006/customer/delete?username=";
+    const url = "https://frittte.azurewebsites.net/customer/delete?username=";
     
     const usernameInput = useRef();
  

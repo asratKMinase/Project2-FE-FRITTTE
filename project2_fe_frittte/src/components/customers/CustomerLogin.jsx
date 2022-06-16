@@ -20,7 +20,9 @@ export default function CustomerLogin(){
         };
         console.log(user)
         try{
-            const getResponse = await axios.get(`${url}/customer/findCustomer?id=${usernameInput.current.value}`, {withCredentials: true})
+            const getResponse = await axios.get(`${url}/customer/findCustomer?id=${usernameInput.current.value}`)
+            console.log(getResponse+2);
+        
             console.log(usernameInput.current.value)
             const response = await axios.post(`${url}/auth`, userInput)
             setUser({...user, username: userInput.username})

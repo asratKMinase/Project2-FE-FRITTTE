@@ -44,12 +44,12 @@ export default function AddProduct() {
 
 
     const[food, setFood]  = useState(true);
-    const url = "http://localhost:9008";
+    const url = "https://frittte.azurewebsites.net";
 
     async function createProduct(){
         const newProduct = {
             id: idInput.current.value,
-            itemName:itemName,
+            itemName:itemNameBody,
             cost:costInput.current.value,
             weight:weightInput.current.value,
             volume:volumeInput.current.value,
