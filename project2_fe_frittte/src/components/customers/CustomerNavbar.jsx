@@ -6,7 +6,6 @@ import { Button } from "@mui/material";
 
 export default function CustomerNavBar(){
     const [user, setUser] = useContext(userContext);
-    console.log(user);
     
     
     const navigate = useNavigate();
