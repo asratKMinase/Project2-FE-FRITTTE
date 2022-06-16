@@ -7,8 +7,8 @@ export default function AdminNavBar() {
         <nav>
             <Button onClick={() => navigate("/admindashboard")}>Admin Dashboard</Button>
             <Button onClick={() => navigate("/addproduct")}>Add a Product</Button>
-            <Button onClick={() => navigate("/updateproduct")}>Update a Product</Button>
-            <Button onClick={() => navigate("/deleteproduct")}>Delete a Product</Button>
+            <Button onClick={() => navigate("/update-product")}>Update a Product</Button>
+            <Button onClick={() => navigate("/delete-product")}>Delete a Product</Button>
         </nav>
     );
 }
