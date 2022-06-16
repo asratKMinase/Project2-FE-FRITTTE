@@ -24,7 +24,7 @@ export default function ViewAllFood() {
 
     async function getItem(){
         
-        const getItemResponse = await axios.get(`http://localhost:9008/findFoodItem?id=${itemInput.current.value}`)
+        const getItemResponse = await axios.get(`https://frittte.azurewebsites.net/findFoodItem?id=${itemInput.current.value}`)
         console.log(getItemResponse.data.itemName)
 
         if(getItemResponse.data.itemName === itemInput.current.value){
@@ -63,7 +63,7 @@ export default function ViewAllFood() {
         };
 
         try {
-            const response = await axios.post("http://localhost:9006/order", order, {withCredentials: true});
+            const response = await axios.post("https://frittte.azurewebsites.net/order", order, {withCredentials: true});
             console.log(response.data);
         } catch (error) {
             console.error(error.response.data);

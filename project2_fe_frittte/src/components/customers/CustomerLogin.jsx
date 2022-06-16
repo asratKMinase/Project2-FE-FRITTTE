@@ -20,7 +20,9 @@ export default function CustomerLogin(){
         };
         console.log(user)
         try{
-            const getResponse = await axios.get(`${url}/customer/findCustomer?id=${usernameInput.current.value}`, {withCredentials: true})
+            const getResponse = await axios.get(`${url}/customer/findCustomer?id=${usernameInput.current.value}`)
+            console.log(getResponse+2);
+        
             console.log(usernameInput.current.value)
             const response = await axios.post(`${url}/auth`, userInput)
             setUser({...user, username: userInput.username})
@@ -28,7 +30,7 @@ export default function CustomerLogin(){
             console.log(user, "2")
             console.log(response.data , "Hello")
             
-        if(usernameInput.current.value === "ASebirka" || usernameInput.current.value === "mmark" ){
+        if(usernameInput.current.value === "Io" || usernameInput.current.value === "mmark" ){
             
                 
                 navigate("/admindashboard");

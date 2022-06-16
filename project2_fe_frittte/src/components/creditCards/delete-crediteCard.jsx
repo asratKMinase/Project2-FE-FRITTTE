@@ -4,7 +4,7 @@ import { userContext } from "../../App";
 
 export default function CrdeiteCardRegister() {
 
-    const url = "http://localhost:9006";
+    const url = "https://frittte.azurewebsites.net";
 
     const [user, setUser] = useContext(userContext);
 
@@ -28,7 +28,7 @@ export default function CrdeiteCardRegister() {
             console.log(checkCard)
 
             if(checkCard === responseCheck.data.creditCardNumber){
-                const response = await axios.delete(`${url}/delete?creditCardNumber=${creditCardInput.current.value}`, userCC, {withCredentials: true})
+                const response = await axios.delete(`${url}/deleteCreditCard?deletedCreditCard=${creditCardInput.current.value}`, userCC)
             }else if(responseCheck.data.creditCardNumber===null){
                 alert("Credit Card is already deleted")
                 console.log(responseCheck)

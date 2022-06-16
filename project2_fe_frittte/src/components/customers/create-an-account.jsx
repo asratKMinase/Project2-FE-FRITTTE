@@ -4,7 +4,11 @@ import { useRef } from "react";
 export default function AccountRegister() {
   
 
+
+  
+
     const url = "https://frittte.azurewebsites.net";
+
     
 
     const usernameInput = useRef();
@@ -28,7 +32,7 @@ export default function AccountRegister() {
              
     };
         try {
-            const response = await axios.post(`${url}/register`, user);
+            const response = await axios.post(`${url}/customer/register`, user);
             console.log(response.data);
          
         } catch (error) {
