@@ -4,7 +4,7 @@ import { useRef } from "react";
 export default function AccountRegister() {
   
 
-    const url = "http://localhost:9006/customer";
+    const url = "https://frittte.azurewebsites.net";
     
 
     const usernameInput = useRef();

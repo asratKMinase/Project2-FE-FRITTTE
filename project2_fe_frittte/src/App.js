@@ -13,6 +13,7 @@ import CustomerDashboard from "./components/customers/customer-dashboard";
 import CustomerLogin from "./components/customers/CustomerLogin";
 import AccountDelete from "./components/customers/delete-an-account";
 import AccountUpdate from "./components/customers/update-an-account";
+import UpdateOrder from "./components/customers/update-order";
 import ViewAllFood from "./components/food/view-all-food";
 import Welcome from "./WelcomePage";
 
@@ -45,6 +46,7 @@ function App() {
                  <Route path="/LogIn" element={<CustomerLogin/>}/>
                  <Route path="/create-an-order" element={<CreateOrder/>}/>
                  <Route path="/addproduct" element={<AddProduct/>}/>
+                 <Route path="/update-an-order" element={<UpdateOrder/>}/>
                </Routes>
           </userContext.Provider>
       </BrowserRouter>
