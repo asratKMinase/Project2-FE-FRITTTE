@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://frittteregistry.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_850617347a4941e3ae0ae7f03f8287cf }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_d7d8af0de68e4d42974f301d8a47a904 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_560a6deeb2b949f9841b1509b3dc97f2 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_8ba9d6e32c704b3d8e537e0e2449b6d4 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: frittteregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_850617347a4941e3ae0ae7f03f8287cf }}/frittteui:${{ github.sha }}
+        tags: frittteregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_560a6deeb2b949f9841b1509b3dc97f2 }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'frittteui'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9287cf8889f74ee68d2e3084c9c124c0 }}
-        images: 'frittteregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_850617347a4941e3ae0ae7f03f8287cf }}/frittteui:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c4a31d8789264d8a92402c2714335af3 }}
+        images: 'frittteregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_560a6deeb2b949f9841b1509b3dc97f2 }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}'
