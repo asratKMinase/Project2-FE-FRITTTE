@@ -13,11 +13,8 @@ export default function MainNavBar(){
              <div class="header">
              <img src={Logo} alt="Logo"></img>
             <h1>Welcome to FRITTTE</h1>
-            
             </div>
-
             <center>
-           
             <Button onClick={() => navigate("/login")}>Login</Button>
             <Button onClick={() => navigate("/register")}>Sign Up</Button>
             <Button onClick={() => navigate("/Food-Items")}>View all Food Items</Button>
