@@ -1,0 +1,51 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy container app to Azure Web App - frittteui
+
+on:
+  push:
+    branches:
+      - asratMinase
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Log in to registry
+      uses: docker/login-action@v1
+      with:
+        registry: https://frittteregistry.azurecr.io/
+        username: ${{ secrets.AzureAppService_ContainerUsername_850617347a4941e3ae0ae7f03f8287cf }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_d7d8af0de68e4d42974f301d8a47a904 }}
+
+    - name: Build and push container image to registry
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: frittteregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_850617347a4941e3ae0ae7f03f8287cf }}/frittteui:${{ github.sha }}
+        file: ./Dockerfile
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'frittteui'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9287cf8889f74ee68d2e3084c9c124c0 }}
+        images: 'frittteregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_850617347a4941e3ae0ae7f03f8287cf }}/frittteui:${{ github.sha }}'
